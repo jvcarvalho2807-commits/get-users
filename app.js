@@ -1,3 +1,9 @@
-const greet = require('./index');
+const button = document.querySelector('button');
 
-greet ();
+async function handle() {
+    const response = await fetch('http://localhost:3000');
+    const data = await response.json();
+
+    console.log(data);
+}
+button.addEventListener('click', handle);

@@ -5,10 +5,15 @@ const http = require('node:http');
 // STRINGFY == TRANSFORMA OBJETO NODE PARA TEXTO 
 // PARSE == DESTRANFORMA TEXTO PARA OBJETO
 http.createServer((Request, Response) => {
-    Response.writeHead(200, {'content-type': 'application/json'});
+    Response.setHeader('Access-Control-Allow-Origin', '*');
+    Response.writeHead(
+        200,
+         {'content-type': 'application/json'}
+        );
     Response.end(JSON.stringify({
         name: 'Alex Bessa',
-        email: 'alex@email.com'}));
+        email: 'alex@email.com'
+    }));
 }).listen(3000);
     
     
@@ -23,3 +28,5 @@ http.createServer((Request, Response) => {
 //300 ----> 399 > Redirecionamento
 //400 ----> 499 >
 //500 ----> 599 > ERROR SERVIDOR
+
+// lista de requisitos  >>>  Prototipagem >>>  Modelar os dados >>> Backend (API)  >>>  Frontend
